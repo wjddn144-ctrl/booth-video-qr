@@ -11,6 +11,8 @@
 - `media/booth-intro.mp4`: 웹용 부스 소개 영상
 - `media/booth-poster.jpg`: 영상 재생 전 대표 이미지
 - `media/social-preview.png`: 링크 공유용 대표 이미지
+- `qr/booth-video-qr.png`: 인쇄·화면 표시용 고해상도 QR
+- `qr/booth-video-qr.svg`: 확대 인쇄용 벡터 QR
 - `tests/site-content.test.mjs`: 필수 콘텐츠와 모바일 영상 속성 검사
 
 ## 로컬 확인
