@@ -1,0 +1,255 @@
+:root {
+  color-scheme: light;
+  --ink: #18372d;
+  --muted: #5e6f68;
+  --paper: #fbf8ef;
+  --gold: #c89c45;
+  --forest: #1f493b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--paper);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 12%, rgb(200 156 69 / 18%), transparent 28rem),
+    radial-gradient(circle at 88% 88%, rgb(31 73 59 / 15%), transparent 30rem),
+    var(--paper);
+  font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+}
+
+video {
+  font: inherit;
+}
+
+.page-shell {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  width: min(1120px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.page-shell::before,
+.page-shell::after {
+  position: fixed;
+  z-index: -1;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgb(200 156 69 / 34%);
+  border-radius: 50%;
+  content: "";
+}
+
+.page-shell::before {
+  top: -92px;
+  left: -74px;
+}
+
+.page-shell::after {
+  right: -96px;
+  bottom: -86px;
+}
+
+.intro-panel {
+  max-width: 600px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.scan-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 9px 14px;
+  border: 1px solid rgb(31 73 59 / 14%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 62%);
+  color: var(--forest);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgb(24 55 45 / 6%);
+}
+
+.scan-status span {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--forest);
+  color: white;
+  font-size: 0.75rem;
+}
+
+h1 {
+  max-width: 10ch;
+  margin: 0;
+  font-size: clamp(2.55rem, 6vw, 5.4rem);
+  font-weight: 850;
+  letter-spacing: -0.065em;
+  line-height: 1.03;
+  text-wrap: balance;
+}
+
+.intro-copy {
+  max-width: 34rem;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.16rem);
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.video-summary {
+  display: flex;
+  gap: 34px;
+  margin: 34px 0 0;
+}
+
+.video-summary div {
+  display: grid;
+  gap: 5px;
+}
+
+.video-summary dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.video-summary dd {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.privacy-note {
+  margin: 32px 0 0;
+  color: #718079;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.video-panel {
+  justify-self: center;
+  width: min(100%, 390px);
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  border: 9px solid #15241f;
+  border-radius: 34px;
+  background: #050706;
+  box-shadow:
+    0 42px 80px rgb(24 55 45 / 20%),
+    0 10px 24px rgb(24 55 45 / 18%),
+    inset 0 0 0 1px rgb(255 255 255 / 10%);
+}
+
+.video-frame::before {
+  position: absolute;
+  z-index: 2;
+  top: 9px;
+  left: 50%;
+  width: 56px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 20%);
+  content: "";
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  object-fit: contain;
+}
+
+.play-help {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    width: min(100% - 30px, 540px);
+    padding: 34px 0 54px;
+  }
+
+  .intro-panel {
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .scan-status {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    max-width: 12ch;
+    margin-inline: auto;
+    font-size: clamp(2.45rem, 13vw, 4.4rem);
+  }
+
+  .intro-copy {
+    margin-top: 20px;
+  }
+
+  .video-summary {
+    justify-content: center;
+    margin-top: 26px;
+  }
+
+  .privacy-note {
+    margin-top: 24px;
+  }
+
+  .video-panel {
+    width: min(88vw, 370px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

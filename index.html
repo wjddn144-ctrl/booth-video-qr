@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1f493b">
+    <meta name="description" content="QR로 간편하게 만나는 부스 소개 영상입니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="부스 소개 영상">
+    <meta property="og:description" content="QR로 간편하게 만나는 우리 이야기">
+    <meta property="og:url" content="https://wjddn144-ctrl.github.io/booth-video-qr/">
+    <meta property="og:image" content="https://wjddn144-ctrl.github.io/booth-video-qr/media/social-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="부스 소개 영상">
+    <meta name="twitter:description" content="QR로 간편하게 만나는 우리 이야기">
+    <meta name="twitter:image" content="https://wjddn144-ctrl.github.io/booth-video-qr/media/social-preview.png">
+    <title>부스 소개 영상</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro-panel" aria-labelledby="page-title">
+        <p class="eyebrow">BOOTH STORY</p>
+        <p class="scan-status">
+          <span aria-hidden="true">✓</span>
+          QR 스캔이 완료되었습니다
+        </p>
+
+        <h1 id="page-title">부스의 이야기를 영상으로 만나보세요</h1>
+        <p class="intro-copy">
+          찾아주셔서 감사합니다. 아래 재생 버튼을 누르면 준비한 소개 영상을
+          바로 감상할 수 있습니다.
+        </p>
+
+        <dl class="video-summary" aria-label="영상 정보">
+          <div>
+            <dt>재생 시간</dt>
+            <dd>약 5분 34초</dd>
+          </div>
+          <div>
+            <dt>화면</dt>
+            <dd>세로형 영상</dd>
+          </div>
+        </dl>
+
+        <p class="privacy-note">
+          이 페이지는 로그인이나 개인정보 입력 없이 이용할 수 있습니다.
+        </p>
+      </section>
+
+      <section class="video-panel" aria-label="부스 소개 영상 플레이어">
+        <div class="video-frame">
+          <video
+            aria-label="부스 소개 영상"
+            controls
+            playsinline
+            preload="metadata"
+            poster="media/booth-poster.jpg"
+          >
+            <source src="media/booth-intro.mp4" type="video/mp4">
+            사용 중인 브라우저에서는 영상을 재생할 수 없습니다.
+          </video>
+        </div>
+        <p class="play-help">화면 중앙의 재생 버튼을 눌러주세요.</p>
+      </section>
+    </main>
+  </body>
+</html>
