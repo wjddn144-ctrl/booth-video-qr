@@ -165,34 +165,20 @@ h1 {
 
 .video-panel {
   justify-self: center;
-  width: min(100%, 390px);
+  width: min(100%, 520px);
 }
 
 .video-frame {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 9 / 16;
-  border: 9px solid #15241f;
-  border-radius: 34px;
+  aspect-ratio: 16 / 9;
+  border: 7px solid #15241f;
+  border-radius: 24px;
   background: #050706;
   box-shadow:
     0 42px 80px rgb(24 55 45 / 20%),
     0 10px 24px rgb(24 55 45 / 18%),
     inset 0 0 0 1px rgb(255 255 255 / 10%);
-}
-
-.video-frame::before {
-  position: absolute;
-  z-index: 2;
-  top: 9px;
-  left: 50%;
-  width: 56px;
-  height: 5px;
-  border-radius: 999px;
-  background: rgb(255 255 255 / 20%);
-  content: "";
-  pointer-events: none;
-  transform: translateX(-50%);
 }
 
 .video-frame video {
@@ -255,7 +241,7 @@ h1 {
   }
 
   .video-panel {
-    width: min(88vw, 370px);
+    width: min(92vw, 520px);
   }
 }
 

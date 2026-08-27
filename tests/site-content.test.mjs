@@ -47,3 +47,14 @@ test('Given a mobile QR visitor, when the page loads, then the hero image stays 
     `The hero image is ${(imageStats.size / 1024 / 1024).toFixed(2)} MB; expected 5 MB or less for reliable mobile loading.`,
   );
 });
+
+test('Given the replacement video, when the page renders its player, then the summary and frame match the landscape media', async () => {
+  const [pageSource, styleSource] = await Promise.all([
+    readFile(new URL('index.html', projectUrl), 'utf8'),
+    readFile(new URL('style.css', projectUrl), 'utf8'),
+  ]);
+
+  assert.match(pageSource, /<dd>약 4분 8초<\/dd>/);
+  assert.match(pageSource, /<dd>가로형 영상<\/dd>/);
+  assert.match(styleSource, /\.video-frame\s*\{[\s\S]*?aspect-ratio:\s*16\s*\/\s*9;/);
+});
