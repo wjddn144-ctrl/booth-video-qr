@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import test from 'node:test';
 
 const projectUrl = new URL('../', import.meta.url);
@@ -13,7 +13,7 @@ test('Given the booth page, when a visitor opens it, then the video is ready for
   assert.match(pageSource, /playsinline/);
   assert.match(pageSource, /media\/booth-intro\.mp4/);
   assert.match(pageSource, /<h1 id="page-title">광장 무한 상사<\/h1>/);
-  assert.match(pageSource, /media\/gwangjang-muhan-sangsa\.png/);
+  assert.match(pageSource, /media\/gwangjang-muhan-sangsa-web\.png/);
   assert.match(pageSource, /alt="우리의 전도를 다시 ON 행사 홍보 이미지"/);
 });
 
@@ -30,5 +30,20 @@ test('Given the public page, when its link is shared, then social metadata uses 
 
   assert.match(pageSource, /property="og:title" content="광장 무한 상사"/);
   assert.match(pageSource, /https:\/\/wjddn144-ctrl\.github\.io\/booth-video-qr\//);
-  assert.match(pageSource, /media\/gwangjang-muhan-sangsa\.png/);
+  assert.match(pageSource, /media\/gwangjang-muhan-sangsa-web\.png/);
+});
+
+test('Given a mobile QR visitor, when the page loads, then the hero image stays within a 5 MB transfer budget', async () => {
+  const pageSource = await readFile(new URL('index.html', projectUrl), 'utf8');
+  const imageSource = pageSource.match(/class="hero-artwork"[\s\S]*?src="([^"]+)"/)?.[1];
+
+  assert.ok(imageSource, 'The hero image source must be present.');
+
+  const imageStats = await stat(new URL(imageSource, projectUrl));
+  const fiveMegabytes = 5 * 1024 * 1024;
+
+  assert.ok(
+    imageStats.size <= fiveMegabytes,
+    `The hero image is ${(imageStats.size / 1024 / 1024).toFixed(2)} MB; expected 5 MB or less for reliable mobile loading.`,
+  );
 });
