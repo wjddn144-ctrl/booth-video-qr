@@ -113,9 +113,20 @@ h1 {
   text-wrap: balance;
 }
 
+.hero-artwork {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 28px 0 0;
+  border: 1px solid rgb(200 156 69 / 42%);
+  border-radius: 22px;
+  background: #2b150b;
+  box-shadow: 0 22px 48px rgb(24 55 45 / 16%);
+}
+
 .intro-copy {
   max-width: 34rem;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
   color: var(--muted);
   font-size: clamp(1rem, 1.8vw, 1.16rem);
   line-height: 1.75;
@@ -223,6 +234,11 @@ h1 {
     max-width: 12ch;
     margin-inline: auto;
     font-size: clamp(2.45rem, 13vw, 4.4rem);
+  }
+
+  .hero-artwork {
+    margin-top: 22px;
+    border-radius: 16px;
   }
 
   .intro-copy {

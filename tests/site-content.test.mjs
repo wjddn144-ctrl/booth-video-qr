@@ -12,7 +12,9 @@ test('Given the booth page, when a visitor opens it, then the video is ready for
   assert.match(pageSource, /controls/);
   assert.match(pageSource, /playsinline/);
   assert.match(pageSource, /media\/booth-intro\.mp4/);
-  assert.match(pageSource, /부스의 이야기를 영상으로 만나보세요/);
+  assert.match(pageSource, /<h1 id="page-title">광장 무한 상사<\/h1>/);
+  assert.match(pageSource, /media\/gwangjang-muhan-sangsa\.png/);
+  assert.match(pageSource, /alt="우리의 전도를 다시 ON 행사 홍보 이미지"/);
 });
 
 test('Given a QR visitor, when the page loads, then it asks for no login or personal information', async () => {
@@ -26,7 +28,7 @@ test('Given a QR visitor, when the page loads, then it asks for no login or pers
 test('Given the public page, when its link is shared, then social metadata uses the deployed URL', async () => {
   const pageSource = await readFile(new URL('index.html', projectUrl), 'utf8');
 
-  assert.match(pageSource, /property="og:title" content="부스 소개 영상"/);
+  assert.match(pageSource, /property="og:title" content="광장 무한 상사"/);
   assert.match(pageSource, /https:\/\/wjddn144-ctrl\.github\.io\/booth-video-qr\//);
-  assert.match(pageSource, /media\/social-preview\.png/);
+  assert.match(pageSource, /media\/gwangjang-muhan-sangsa\.png/);
 });
