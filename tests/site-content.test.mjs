@@ -54,7 +54,7 @@ test('Given the replacement video, when the page renders its player, then the su
     readFile(new URL('style.css', projectUrl), 'utf8'),
   ]);
 
-  assert.match(pageSource, /<dd>약 4분 8초<\/dd>/);
+  assert.match(pageSource, /<dd>약 3분 48초<\/dd>/);
   assert.match(pageSource, /<dd>가로형 영상<\/dd>/);
   assert.match(styleSource, /\.video-frame\s*\{[\s\S]*?aspect-ratio:\s*16\s*\/\s*9;/);
 });
